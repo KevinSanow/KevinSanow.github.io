@@ -6,273 +6,104 @@
   <title>Kevin — Freelancer für Operations Research & Algorithm Engineering</title>
   <meta name="description" content="Ich baue maßgeschneiderte Optimierungssoftware: von Modellierung (MIP/CP) bis produktionsreifer Heuristik. Projekte in Logistik, Produktion & Planung." />
   <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Freelancer für Operations Research & Algorithm Engineering" />
-  <meta property="og:description" content="Optimierungsmodelle, Heuristiken, OR-Tools, Gurobi/CPLEX. Schnell zu Ergebnissen, sauber integriert." />
+  <meta property="og:title" content="Kevin — Freelancer für Operations Research & Algorithm Engineering" />
+  <meta property="og:description" content="Ich baue maßgeschneiderte Optimierungssoftware: von Modellierung (MIP/CP) bis produktionsreifer Heuristik. Projekte in Logistik, Produktion & Planung." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://deinedomain.de" />
-  <meta property="twitter:card" content="summary" />
-  <style>
-    :root {
-      --bg: #0b0d10;
-      --bg-soft: #12161b;
-      --text: #e8ebef;
-      --muted: #9aa5b1;
-      --accent: #4aa8ff;
-      --ok: #2ecc71;
-      --warn: #f1c40f;
-      --danger: #e74c3c;
-      --radius: 16px;
-      --shadow: 0 10px 25px rgba(0,0,0,.3);
-    }
-    @media (prefers-color-scheme: light) {
-      :root { --bg: #ffffff; --bg-soft:#f5f7fb; --text:#0b0d10; --muted:#516173; }
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
-    .nav { display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 10px 0; position: sticky; top:0; background: color-mix(in oklab, var(--bg) 92%, transparent); backdrop-filter: blur(8px); z-index: 10; }
-    .brand { font-weight: 700; font-size: 18px; letter-spacing: .3px; }
-    .navlinks { display:flex; gap:14px; align-items:center; }
-    .nav a.btn { padding:10px 14px; border-radius: 999px; background: var(--bg-soft); border:1px solid #1f2833; box-shadow: var(--shadow); }
-
-    .hero { display:grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items:center; padding: 42px 0 12px; }
-    .hero h1 { font-size: clamp(28px, 4.2vw, 44px); line-height: 1.1; margin: 0 0 12px; }
-    .hero p.lead { color: var(--muted); font-size: clamp(16px, 2.2vw, 20px); margin: 0 0 22px; }
-    .tags { display:flex; flex-wrap:wrap; gap:8px; margin: 18px 0; }
-    .tag { padding:8px 12px; border-radius: 999px; background: var(--bg-soft); color: var(--muted); border:1px solid #1f2833; font-size: 13px; }
-    .cta-row { display:flex; gap:10px; flex-wrap:wrap; }
-    .btn { display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius: 12px; border:1px solid #1f2833; background: var(--bg-soft); color: var(--text); box-shadow: var(--shadow); font-weight: 600; }
-    .btn.primary { background: linear-gradient(180deg, color-mix(in oklab, var(--accent) 40%, #fff 0%), var(--accent)); color: #06121d; border-color: color-mix(in oklab, var(--accent) 70%, #000); }
-
-    .card-grid { display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-    .card { background: var(--bg-soft); border:1px solid #1f2833; border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow); }
-    .card h3 { margin: 0 0 8px; font-size: 18px; }
-    .card p { margin: 0; color: var(--muted); }
-
-    .section { padding: 38px 0; }
-    .section h2 { margin: 0 0 14px; font-size: 24px; }
-
-    .case { display:grid; grid-template-columns: 1fr 1fr; gap: 14px; padding: 16px; border-radius: var(--radius); border:1px dashed #2a3542; }
-    .case .kicker { text-transform: uppercase; letter-spacing: .08em; font-size: 12px; color: var(--muted); }
-    .case strong { font-size: 17px; }
-    .metrics { display:flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; }
-    .metric { background: #0a121a; border:1px solid #1f2833; border-radius: 10px; padding: 10px 12px; }
-
-    .list { display:grid; gap: 10px; padding-left: 18px; }
-    .list li { margin-bottom: 2px; }
-
-    .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-
-    .footer { padding: 28px 0 60px; color: var(--muted); font-size: 14px; }
-    .small { color: var(--muted); font-size: 14px; }
-
-    .hide-mobile { display:block; }
-    .nav-toggle { display:none; }
-
-    @media (max-width: 880px) {
-      .hero { grid-template-columns: 1fr; }
-      .card-grid { grid-template-columns: 1fr; }
-      .grid-2 { grid-template-columns: 1fr; }
-      .hide-mobile { display:none; }
-      .nav-toggle { display:inline-flex; }
-      .navlinks { display:none; }
-      .navlinks.open { display:flex; flex-direction:column; align-items:flex-start; position: absolute; top: 54px; left: 0; right: 0; background: var(--bg); padding: 16px 24px; border-top:1px solid #1f2833; }
-    }
-    code.inline { background:#0a121a; border:1px solid #1f2833; padding:2px 6px; border-radius: 6px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .95em; }
-  </style>
-  <script>
-    function toggleNav(){
-      const links = document.querySelector('.navlinks');
-      links.classList.toggle('open');
-    }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Kevin",
-    "jobTitle": "Freiberuflicher Softwareentwickler (Operations Research)",
-    "url": "https://deinedomain.de",
-    "sameAs": [],
-    "knowsAbout": ["Operations Research", "Optimierung", "Heuristiken", "Metaheuristiken", "MIP", "Constraint Programming", "Routenplanung", "Produktionsplanung"]
-  }
-  </script>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Kevin", "jobTitle": "Freiberuflicher Softwareentwickler (Operations Research)", "url": "https://deinedomain.de", "sameAs": [], "knowsAbout": ["Operations Research", "Optimierung", "Heuristiken", "Metaheuristiken", "MIP", "Constraint Programming", "Routenplanung", "Produktionsplanung"]}</script>
 </head>
 <body>
-  <header class="container nav">
-    <div class="brand">Kevin • OR & Algorithmen</div>
-    <button class="btn nav-toggle" onclick="toggleNav()">Menü</button>
-    <nav class="navlinks">
-      <a class="btn" href="#leistungen">Leistungen</a>
-      <a class="btn" href="#projekte">Projekte</a>
-      <a class="btn" href="#ueber">Über mich</a>
-      <a class="btn" href="#kontakt">Kontakt</a>
-      <a class="btn" href="#impressum">Impressum</a>
-    </nav>
-  </header>
-
+  
+    <header class="container nav">
+      <div class="brand"><a href="index.html" style="color:inherit;text-decoration:none">Kevin • OR & Algorithmen</a></div>
+      <button class="btn nav-toggle" onclick="toggleNav()">Menü</button>
+      <nav class="navlinks">
+        <a class="btn primary" href="index.html">Start</a>
+        <a class="btn" href="services.html">Leistungen</a>
+        <a class="btn" href="projects.html">Projekte</a>
+        <a class="btn" href="about.html">Über mich</a>
+        <a class="btn" href="contact.html">Kontakt</a>
+        <a class="btn" href="impressum.html">Impressum</a>
+      </nav>
+    </header>
+    
   <main class="container">
-    <section class="hero">
+    
+<section class="hero">
+  <div>
+    <h1>Optimierungssoftware, die Ergebnisse liefert.</h1>
+    <p class="lead">Ich entwickle <strong>maßgeschneiderte Algorithmen</strong> und <strong>Optimierungsmodelle</strong> – von Heuristiken & Metaheuristiken bis zu MIP/CP mit Gurobi/CPLEX. Fokus: <em>messbare Wirkung in Produktion, Logistik & Planung</em>.</p>
+    <div class="tags">
+      <span class="tag">Routen- & Tourenplanung (VRP)</span>
+      <span class="tag">Produktionsplanung</span>
+      <span class="tag">Workforce Scheduling</span>
+      <span class="tag">OR-Tools • Pyomo • CP-SAT</span>
+      <span class="tag">Python • C++ • Docker</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn primary" href="mailto:hello@deinedomain.de?subject=Anfrage%20Optimierungsprojekt">Projekt besprechen</a>
+      <a class="btn" href="contact.html#termin">30‑Min‑Kennenlernen</a>
+      <a class="btn" href="projects.html">Beispiele ansehen</a>
+    </div>
+    <p class="small">Antwort meist binnen 24h · Remote aus Deutschland · Deutsch & Englisch</p>
+  </div>
+  <div class="card hide-mobile">
+    <h3>Schnellstart: Wie ich arbeite</h3>
+    <ol class="list">
+      <li><strong>Kurz-Call</strong> (30 min): Problem, Daten, Zielmetrik.</li>
+      <li><strong>Prototyp</strong> (1–2 Wochen): Heuristik/MIP, erste Ergebnisse.</li>
+      <li><strong>Produktionsreife</strong>: Integration via API/Container.</li>
+      <li><strong>Übergabe</strong>: Doku, Tests, Schulung.</li>
+    </ol>
+    <div class="metrics">
+      <div class="metric">⏱️ <strong>TTR ↓</strong> schnelle Iteration</div>
+      <div class="metric">📈 <strong>KPI ↑</strong> Kosten/Service-Level</div>
+      <div class="metric">🧪 <strong>Saubere Doku</strong> & Tests</div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <h2>Womit ich helfe</h2>
+  <div class="card-grid">
+    <div class="card"><h3>Modellierung & Solver</h3><p>Formulierung von MIP/CP-Modellen (Pyomo, OR‑Tools, CP‑SAT), Tuning & Performance‑Analyse.</p></div>
+    <div class="card"><h3>Heuristiken & Metaheuristiken</h3><p>Local Search, VNS, Tabu, SA, genetische Verfahren – pragmatisch & robust.</p></div>
+    <div class="card"><h3>Routen‑ & Tourenplanung</h3><p>VRP/VRPTW, Multi‑Depot, Pickup‑Delivery, Heterogeneous Fleet, Zeitfenster, Skills & mehr.</p></div>
+  </div>
+  <p class="small">Mehr dazu unter <a href="services.html">Leistungen</a>.</p>
+</section>
+<section class="section">
+  <h2>Beispiele & Wirkung</h2>
+  <div class="grid-2">
+    <div class="case">
       <div>
-        <h1>Optimierungssoftware, die Ergebnisse liefert.</h1>
-        <p class="lead">Ich entwickle <strong>maßgeschneiderte Algorithmen</strong> und <strong>Optimierungsmodelle</strong> – von Heuristiken & Metaheuristiken bis zu MIP/CP mit Gurobi/CPLEX. Fokus: <em>messbare Wirkung in Produktion, Logistik & Planung</em>.</p>
-        <div class="tags">
-          <span class="tag">Routen- & Tourenplanung (VRP)</span>
-          <span class="tag">Produktionsplanung</span>
-          <span class="tag">Workforce Scheduling</span>
-          <span class="tag">OR-Tools • Pyomo • CP-SAT</span>
-          <span class="tag">Python • C++ • Docker</span>
-        </div>
-        <div class="cta-row">
-          <a class="btn primary" href="mailto:hello@deinedomain.de?subject=Anfrage%20Optimierungsprojekt">Projekt besprechen</a>
-          <a class="btn" href="https://calendly.com/DEIN-USERNAME/30min" target="_blank" rel="noopener">30‑Min‑Kennenlernen</a>
-          <a class="btn" href="#projekte">Beispiele ansehen</a>
-        </div>
-        <p class="small">Antwort meist binnen 24h · Remote aus Deutschland · Deutsch & Englisch</p>
+        <div class="kicker">Logistik • VRPTW</div>
+        <strong>Tourenplanung reduziert Kilometer um 17 %</strong>
+        <p>Heuristik + CP‑SAT für Zeitfenster & Fahrzeug‑Heterogenität. Integration als API in bestehendes TMS.</p>
+        <div class="metrics"><div class="metric">−17 % km</div><div class="metric">Service‑Level 98 %</div><div class="metric">TTR: 9 Tage</div></div>
       </div>
-      <div class="card hide-mobile">
-        <h3>Schnellstart: Wie ich arbeite</h3>
-        <ol class="list">
-          <li><strong>Kurz-Call</strong> (30 min): Problem, Daten, Zielmetrik.</li>
-          <li><strong>Prototyp</strong> (1–2 Wochen): Heuristik/MIP, erste Ergebnisse.</li>
-          <li><strong>Produktionsreife</strong>: Integration via API/Container.</li>
-          <li><strong>Übergabe</strong>: Doku, Tests, Schulung.</li>
-        </ol>
-        <div class="metrics">
-          <div class="metric">⏱️ <strong>TTR ↓</strong> schnelle Iteration</div>
-          <div class="metric">📈 <strong>KPI ↑</strong> Kosten/Service-Level</div>
-          <div class="metric">🧪 <strong>Saubere Doku</strong> & Tests</div>
-        </div>
+    </div>
+    <div class="case">
+      <div>
+        <div class="kicker">Fertigung • Reihenfolgeplanung</div>
+        <strong>Rüstzeiten um 23 % gesenkt</strong>
+        <p>MIP‑Modell mit Prioritäten & Nebenbedingungen; Solver‑Tuning und Warm‑Starts.</p>
+        <div class="metrics"><div class="metric">−23 % Setup</div><div class="metric">+8 % Durchsatz</div></div>
       </div>
-    </section>
+    </div>
+  </div>
+  <p class="small">Hinweis: Beispielwerte zur Veranschaulichung. Echte Case Studies später ersetzen.</p>
+</section>
 
-    <section id="leistungen" class="section">
-      <h2>Leistungen</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Modellierung & Solver</h3>
-          <p>Formulierung von MIP/CP-Modellen (Pyomo, OR‑Tools, CP‑SAT), Tuning & Performance‑Analyse.</p>
-        </div>
-        <div class="card">
-          <h3>Heuristiken & Metaheuristiken</h3>
-          <p>Greedy, Local Search, VNS, Tabu, Simulated Annealing, genetische Verfahren – pragmatisch & robust.</p>
-        </div>
-        <div class="card">
-          <h3>Routen‑ & Tourenplanung</h3>
-          <p>VRP/VRPTW, Multi‑Depot, Pickup‑Delivery, Heterogeneous Fleet, Zeitfenster, Skills & mehr.</p>
-        </div>
-        <div class="card">
-          <h3>Produktions‑ & Einsatzplanung</h3>
-          <p>Losgrößen, Reihenfolgen, Rüstzeiten, Schichtplanung – belastbar umgesetzt.</p>
-        </div>
-        <div class="card">
-          <h3>Integration & APIs</h3>
-          <p>Bereitstellung als REST/GraphQL‑Service, Container (Docker), CI/CD, Monitoring.</p>
-        </div>
-        <div class="card">
-          <h3>Daten & Simulation</h3>
-          <p>Datenaufbereitung (Pandas), Szenario‑Simulation, What‑If‑Analysen, Reproduzierbarkeit.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="projekte" class="section">
-      <h2>Beispiele & Wirkung</h2>
-      <div class="grid-2">
-        <div class="case">
-          <div>
-            <div class="kicker">Logistik • VRPTW</div>
-            <strong>Tourenplanung reduziert Kilometer um 17 %</strong>
-            <p>Heuristik + CP‑SAT für Zeitfenster & Fahrzeug‑Heterogenität. Integration als API in bestehendes TMS.</p>
-            <div class="metrics">
-              <div class="metric">−17 % km</div>
-              <div class="metric">Service‑Level 98 %</div>
-              <div class="metric"><abbr title="Time to result">TTR</abbr>: 9 Tage</div>
-            </div>
-          </div>
-        </div>
-        <div class="case">
-          <div>
-            <div class="kicker">Fertigung • Reihenfolgeplanung</div>
-            <strong>Rüstzeiten um 23 % gesenkt</strong>
-            <p>MIP‑Modell mit Prioritäten & Nebenbedingungen; Solver‑Tuning und Warm‑Starts.</p>
-            <div class="metrics">
-              <div class="metric">−23 % Setup</div>
-              <div class="metric">+8 % Durchsatz</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="small">Hinweis: Beispielwerte zur Veranschaulichung. Echte Case Studies hier verlinken.</p>
-    </section>
-
-    <section id="ueber" class="section">
-      <h2>Über mich</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Hi, ich bin Kevin.</h3>
-          <p>Ich helfe Unternehmen, Entscheidungen zu <em>optimieren</em> – mit sauberen Modellen & pragmatischer Umsetzung. Hintergrund in <strong>Operations Research</strong>, Erfahrung in <strong>Algorithmenentwicklung</strong> und <strong>Produktintegration</strong>.</p>
-          <p>Ich arbeite fokussiert, transparent und datengetrieben – mit Sinn für <em>Time‑to‑Value</em>.</p>
-        </div>
-        <div class="card">
-          <h3>Stack & Tools</h3>
-          <p>Python, C++, Julia · OR‑Tools, Gurobi, CPLEX · Pyomo, NetworkX · Pandas, NumPy · FastAPI · Docker · GitHub Actions · AWS/GCP/Azure.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Vorgehen</h2>
-      <ol class="list">
-        <li><strong>Discovery:</strong> Zielmetrik & Randbedingungen klären. Datenzugang.</li>
-        <li><strong>Prototyp:</strong> Klein starten, schnell messen. Baseline vs. Heuristik/MIP.</li>
-        <li><strong>Produkt:</strong> Stabilisieren, Schnittstellen bauen, Monitoring.</li>
-        <li><strong>Übergabe:</strong> Doku, Tests, Schulung & Support.</li>
-      </ol>
-    </section>
-
-    <section id="kontakt" class="section">
-      <h2>Kontakt</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Schneller Draht</h3>
-          <p>E‑Mail: <a href="mailto:hello@deinedomain.de">hello@deinedomain.de</a><br/>Termin: <a href="https://calendly.com/DEIN-USERNAME/30min" target="_blank" rel="noopener">Calendly</a></p>
-          <p class="small">Bitte kurz Problem, Datenlage und gewünschte Kennzahl (z. B. Kosten, SL, km) skizzieren.</p>
-        </div>
-        <div class="card">
-          <h3>Verfügbarkeit</h3>
-          <p>In der Regel innerhalb von 2–4 Wochen Projektstart möglich. Remote, Zeitzone CET/CEST.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="impressum" class="section">
-      <h2>Impressum</h2>
-      <p><strong>Verantwortlich nach §5 TMG</strong><br>
-      Ihr Name<br>
-      Ihre Anschrift<br>
-      E‑Mail: hello@deinedomain.de<br>
-      USt‑IdNr.: DE‑… (falls vorhanden)</p>
-      <p class="small">Platzhalter – bitte durch Ihre echten Angaben ersetzen.</p>
-    </section>
-
-    <section id="datenschutz" class="section">
-      <h2>Datenschutzerklärung</h2>
-      <p>Platzhalter: Fügen Sie hier Ihre DSGVO‑konforme Datenschutzerklärung ein (z. B. über einen Generator). Achten Sie auf Details zu Hosting, Logs, Kontaktformular, Analytics, Einbindung externer Dienste.</p>
-    </section>
-
-    <footer class="container footer">
-      <div>© <span id="y"></span> Kevin — Freelancer für Operations Research. <a href="#datenschutz">Datenschutz</a> · <a href="#impressum">Impressum</a></div>
-      <div class="small">Letztes Update: <span id="upd"></span></div>
-    </footer>
   </main>
-
-  <script>
-    const d=new Date();
-    document.getElementById('y').textContent = d.getFullYear();
-    document.getElementById('upd').textContent = d.toLocaleDateString('de-DE');
-  </script>
+  
+    <footer class="container footer">
+      <div>© <span id="year"></span> Kevin — Freelancer für Operations Research.
+        <a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a></div>
+      <div class="small">Letztes Update: <span id="updated"></span></div>
+    </footer>
+    
+  <script src="assets/main.js"></script>
 </body>
 </html>
