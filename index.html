@@ -3,107 +3,289 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kevin — Freelancer für Operations Research & Algorithm Engineering</title>
-  <meta name="description" content="Ich baue maßgeschneiderte Optimierungssoftware: von Modellierung (MIP/CP) bis produktionsreifer Heuristik. Projekte in Logistik, Produktion & Planung." />
-  <meta name="robots" content="index, follow" />
-  <meta property="og:title" content="Kevin — Freelancer für Operations Research & Algorithm Engineering" />
-  <meta property="og:description" content="Ich baue maßgeschneiderte Optimierungssoftware: von Modellierung (MIP/CP) bis produktionsreifer Heuristik. Projekte in Logistik, Produktion & Planung." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://deinedomain.de" />
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-  <link rel="stylesheet" href="assets/style.css" />
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Kevin", "jobTitle": "Freiberuflicher Softwareentwickler (Operations Research)", "url": "https://deinedomain.de", "sameAs": [], "knowsAbout": ["Operations Research", "Optimierung", "Heuristiken", "Metaheuristiken", "MIP", "Constraint Programming", "Routenplanung", "Produktionsplanung"]}</script>
+  <title>Algorithm Demos – TSP (NN + 2‑Opt)</title>
+  <meta name="description" content="Kleine interaktive Demo zur Tourenplanung (TSP) mit Nearest Neighbor und 2‑Opt, 100% clientseitig – ideal für GitHub Pages." />
+  <!-- Tailwind via CDN (für GitHub Pages geeignet) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Sanfte Scrolls und Fokus */
+    html { scroll-behavior: smooth; }
+    :focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; }
+    /* Canvas Container – responsive */
+    #canvasWrap { aspect-ratio: 16/10; }
+    /* Kleine Helfer */
+    .btn { @apply inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-semibold shadow-sm hover:shadow md:text-base; }
+    .btn-primary { @apply bg-indigo-600 text-white hover:bg-indigo-700; }
+    .btn-ghost { @apply bg-white/70 hover:bg-white; }
+    .badge { @apply inline-flex items-center rounded-full border border-indigo-200 bg-indigo-50 px-2 py-0.5 text-xs text-indigo-700; }
+    .stat { @apply rounded-2xl bg-white/70 p-3 shadow-sm ring-1 ring-black/5; }
+  </style>
 </head>
-<body>
-  
-    <header class="container nav">
-      <div class="brand"><a href="index.html" style="color:inherit;text-decoration:none">Kevin • OR & Algorithmen</a></div>
-      <button class="btn nav-toggle" onclick="toggleNav()">Menü</button>
-      <nav class="navlinks">
-        <a class="btn primary" href="index.html">Start</a>
-        <a class="btn" href="services.html">Leistungen</a>
-        <a class="btn" href="projects.html">Projekte</a>
-        <a class="btn" href="about.html">Über mich</a>
-        <a class="btn" href="contact.html">Kontakt</a>
-        <a class="btn" href="impressum.html">Impressum</a>
-      </nav>
-    </header>
-    
-  <main class="container">
-    
-<section class="hero">
-  <div>
-    <h1>Optimierungssoftware, die Ergebnisse liefert.</h1>
-    <p class="lead">Ich entwickle <strong>maßgeschneiderte Algorithmen</strong> und <strong>Optimierungsmodelle</strong> – von Heuristiken & Metaheuristiken bis zu MIP/CP mit Gurobi/CPLEX. Fokus: <em>messbare Wirkung in Produktion, Logistik & Planung</em>.</p>
-    <div class="tags">
-      <span class="tag">Routen- & Tourenplanung (VRP)</span>
-      <span class="tag">Produktionsplanung</span>
-      <span class="tag">Workforce Scheduling</span>
-      <span class="tag">OR-Tools • Pyomo • CP-SAT</span>
-      <span class="tag">Python • C++ • Docker</span>
-    </div>
-    <div class="cta-row">
-      <a class="btn primary" href="mailto:hello@deinedomain.de?subject=Anfrage%20Optimierungsprojekt">Projekt besprechen</a>
-      <a class="btn" href="contact.html#termin">30‑Min‑Kennenlernen</a>
-      <a class="btn" href="projects.html">Beispiele ansehen</a>
-    </div>
-    <p class="small">Antwort meist binnen 24h · Remote aus Deutschland · Deutsch & Englisch</p>
-  </div>
-  <div class="card hide-mobile">
-    <h3>Schnellstart: Wie ich arbeite</h3>
-    <ol class="list">
-      <li><strong>Kurz-Call</strong> (30 min): Problem, Daten, Zielmetrik.</li>
-      <li><strong>Prototyp</strong> (1–2 Wochen): Heuristik/MIP, erste Ergebnisse.</li>
-      <li><strong>Produktionsreife</strong>: Integration via API/Container.</li>
-      <li><strong>Übergabe</strong>: Doku, Tests, Schulung.</li>
-    </ol>
-    <div class="metrics">
-      <div class="metric">⏱️ <strong>TTR ↓</strong> schnelle Iteration</div>
-      <div class="metric">📈 <strong>KPI ↑</strong> Kosten/Service-Level</div>
-      <div class="metric">🧪 <strong>Saubere Doku</strong> & Tests</div>
-    </div>
-  </div>
-</section>
-<section class="section">
-  <h2>Womit ich helfe</h2>
-  <div class="card-grid">
-    <div class="card"><h3>Modellierung & Solver</h3><p>Formulierung von MIP/CP-Modellen (Pyomo, OR‑Tools, CP‑SAT), Tuning & Performance‑Analyse.</p></div>
-    <div class="card"><h3>Heuristiken & Metaheuristiken</h3><p>Local Search, VNS, Tabu, SA, genetische Verfahren – pragmatisch & robust.</p></div>
-    <div class="card"><h3>Routen‑ & Tourenplanung</h3><p>VRP/VRPTW, Multi‑Depot, Pickup‑Delivery, Heterogeneous Fleet, Zeitfenster, Skills & mehr.</p></div>
-  </div>
-  <p class="small">Mehr dazu unter <a href="services.html">Leistungen</a>.</p>
-</section>
-<section class="section">
-  <h2>Beispiele & Wirkung</h2>
-  <div class="grid-2">
-    <div class="case">
+<body class="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 text-slate-800">
+  <!-- Header -->
+  <header class="mx-auto max-w-6xl px-4 pt-8">
+    <div class="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
       <div>
-        <div class="kicker">Logistik • VRPTW</div>
-        <strong>Tourenplanung reduziert Kilometer um 17 %</strong>
-        <p>Heuristik + CP‑SAT für Zeitfenster & Fahrzeug‑Heterogenität. Integration als API in bestehendes TMS.</p>
-        <div class="metrics"><div class="metric">−17 % km</div><div class="metric">Service‑Level 98 %</div><div class="metric">TTR: 9 Tage</div></div>
+        <h1 class="text-2xl font-bold tracking-tight md:text-3xl">Algorithm Demos</h1>
+        <p class="mt-1 text-sm text-slate-600 md:text-base">Minimalbeispiel für GitHub Pages – <span class="badge">TSP (Nearest Neighbor + 2‑Opt)</span></p>
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="btnDownloadPNG" class="btn btn-ghost" title="Canvas als PNG speichern">PNG exportieren</button>
+        <button id="btnDownloadCSV" class="btn btn-ghost" title="Punkteliste als CSV speichern">CSV exportieren</button>
       </div>
     </div>
-    <div class="case">
-      <div>
-        <div class="kicker">Fertigung • Reihenfolgeplanung</div>
-        <strong>Rüstzeiten um 23 % gesenkt</strong>
-        <p>MIP‑Modell mit Prioritäten & Nebenbedingungen; Solver‑Tuning und Warm‑Starts.</p>
-        <div class="metrics"><div class="metric">−23 % Setup</div><div class="metric">+8 % Durchsatz</div></div>
-      </div>
-    </div>
-  </div>
-  <p class="small">Hinweis: Beispielwerte zur Veranschaulichung. Echte Case Studies später ersetzen.</p>
-</section>
+  </header>
 
-  </main>
-  
-    <footer class="container footer">
-      <div>© <span id="year"></span> Kevin — Freelancer für Operations Research.
-        <a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a></div>
-      <div class="small">Letztes Update: <span id="updated"></span></div>
+  <!-- Tabs -->
+  <nav class="mx-auto mt-6 max-w-6xl px-4">
+    <div class="flex w-full gap-2 rounded-2xl bg-white/70 p-1 shadow ring-1 ring-black/5">
+      <button data-tab="tsp" class="tab btn w-full justify-center bg-indigo-600 text-white hover:bg-indigo-700">Tourenplanung (TSP)</button>
+      <button data-tab="sched" class="tab btn w-full justify-center btn-ghost disabled:opacity-50" disabled>Scheduling (bald)</button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="mx-auto max-w-6xl px-4 py-6">
+    <!-- Controls -->
+    <section class="rounded-2xl bg-white/80 p-4 shadow ring-1 ring-black/5 md:p-6">
+      <div class="grid grid-cols-1 gap-4 md:grid-cols-3 md:items-end">
+        <div>
+          <label for="numPoints" class="block text-sm font-medium text-slate-700">Anzahl Punkte</label>
+          <input id="numPoints" type="range" min="5" max="200" value="40" class="mt-2 w-full" />
+          <div class="mt-1 text-xs text-slate-600"><span id="numPointsLabel">40</span> Punkte</div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <button id="btnGenerate" class="btn btn-ghost" title="Zufällige Punkte erzeugen">Punkte erzeugen</button>
+          <button id="btnAddMode" class="btn btn-ghost" title="Per Klick Punkte hinzufügen">Punkte hinzufügen: <span id="addModeState">aus</span></button>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <button id="btnSolve" class="btn btn-primary" title="NN + 2‑Opt ausführen">Lösung berechnen</button>
+          <button id="btnTwoOptStep" class="btn btn-ghost" title="Ein 2‑Opt Schritt">2‑Opt (ein Schritt)</button>
+          <button id="btnReset" class="btn btn-ghost" title="Zurücksetzen">Zurücksetzen</button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="mt-4 grid grid-cols-2 gap-3 md:grid-cols-4">
+        <div class="stat"><div class="text-xs text-slate-500">Punkte</div><div class="text-lg font-semibold" id="statPoints">0</div></div>
+        <div class="stat"><div class="text-xs text-slate-500">Distanz (aktuell)</div><div class="text-lg font-semibold" id="statDist">–</div></div>
+        <div class="stat"><div class="text-xs text-slate-500">Verbesserung</div><div class="text-lg font-semibold" id="statImprove">–</div></div>
+        <div class="stat"><div class="text-xs text-slate-500">Iterationen (2‑Opt)</div><div class="text-lg font-semibold" id="statIters">0</div></div>
+      </div>
+    </section>
+
+    <!-- Canvas -->
+    <section class="mt-6">
+      <div id="canvasWrap" class="relative w-full overflow-hidden rounded-2xl bg-white/80 shadow ring-1 ring-black/5">
+        <canvas id="canvas" class="block w-full"></canvas>
+        <div class="pointer-events-none absolute right-3 top-3 rounded-full bg-white/80 px-3 py-1 text-xs font-medium text-slate-600 shadow">Klicke in die Fläche, um Punkte hinzuzufügen (wenn aktiv)</div>
+      </div>
+      <p class="mt-3 text-xs text-slate-500">Hinweis: Das TSP wird als geschlossener Rundweg gezeichnet. Distanz = Summe der Kantenlängen (euklidisch).</p>
+    </section>
+
+    <!-- Footer / Info -->
+    <footer class="mt-10 rounded-2xl bg-white/60 p-4 text-sm text-slate-600 ring-1 ring-black/5">
+      <p><strong>Über die Demo:</strong> Startlösung via <em>Nearest Neighbor</em>, anschließende lokale Suche mit <em>2‑Opt</em> (First‑Improvement). 100% clientseitig, ideal für GitHub Pages. Du kannst diese Seite als <code>index.html</code> veröffentlichen.</p>
     </footer>
-    
-  <script src="assets/main.js"></script>
+  </main>
+
+  <script>
+    // ======= Hilfsfunktionen =======
+    function dist(a, b) {
+      const dx = a.x - b.x, dy = a.y - b.y; return Math.hypot(dx, dy);
+    }
+    function totalDistance(order, pts) {
+      if (!order || order.length < 2) return 0;
+      let s = 0; const n = order.length;
+      for (let i = 0; i < n; i++) {
+        const p = pts[order[i]], q = pts[order[(i + 1) % n]]; s += dist(p, q);
+      }
+      return s;
+    }
+    function nearestNeighbor(pts, startIdx = 0) {
+      const n = pts.length; const used = new Array(n).fill(false); const order = []; let cur = startIdx; used[cur] = true; order.push(cur);
+      for (let k = 1; k < n; k++) {
+        let best = -1, bestD = Infinity;
+        for (let j = 0; j < n; j++) if (!used[j]) {
+          const d = dist(pts[cur], pts[j]); if (d < bestD) { bestD = d; best = j; }
+        }
+        used[best] = true; order.push(best); cur = best;
+      }
+      return order;
+    }
+    function twoOptFirstImprovement(order, pts) {
+      // Führt eine 2‑Opt-Verbesserung aus (ein Schritt). Gibt true zurück, wenn verbessert.
+      const n = order.length; if (n < 4) return false;
+      const idxAt = (i) => order[(i + n) % n];
+      const dAt = (i, j) => dist(pts[idxAt(i)], pts[idxAt(j)]);
+      for (let i = 1; i < n - 2; i++) {
+        for (let j = i + 1; j < n - 0; j++) {
+          const a = order[i - 1], b = order[i], c = order[j % n], d = order[(j + 1) % n];
+          const delta = dist(pts[a], pts[c]) + dist(pts[b], pts[d]) - dist(pts[a], pts[b]) - dist(pts[c], pts[d]);
+          if (delta < -1e-9) {
+            // Segment [i..j] umkehren
+            for (let l = 0; l < Math.floor((j - i + 1)/2); l++) {
+              const t = order[i + l]; order[i + l] = order[j - l]; order[j - l] = t;
+            }
+            return true;
+          }
+        }
+      }
+      return false;
+    }
+
+    // ======= Zeichenlogik =======
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d', { alpha: false });
+    let DPR = Math.max(1, Math.floor(window.devicePixelRatio || 1));
+
+    function resizeCanvas() {
+      const wrap = document.getElementById('canvasWrap');
+      const rect = wrap.getBoundingClientRect();
+      const w = Math.floor(rect.width);
+      const h = Math.floor(rect.height);
+      DPR = Math.max(1, Math.floor(window.devicePixelRatio || 1));
+      canvas.width = w * DPR; canvas.height = h * DPR; canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+      ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+      draw();
+    }
+    window.addEventListener('resize', resizeCanvas);
+
+    function drawGrid() {
+      const w = canvas.width / DPR, h = canvas.height / DPR;
+      ctx.fillStyle = '#ffffff'; ctx.fillRect(0, 0, w, h);
+      ctx.strokeStyle = 'rgba(0,0,0,0.05)'; ctx.lineWidth = 1;
+      const step = 40; ctx.beginPath();
+      for (let x = step; x < w; x += step) { ctx.moveTo(x, 0); ctx.lineTo(x, h); }
+      for (let y = step; y < h; y += step) { ctx.moveTo(0, y); ctx.lineTo(w, y); }
+      ctx.stroke();
+    }
+
+    // ======= Anwendungszustand =======
+    let points = [];
+    let order = [];
+    let baseDistance = null; // Distanz der Startlösung
+    let twoOptIterations = 0;
+    let addMode = false;
+
+    function randomPoints(n) {
+      const w = canvas.width / DPR, h = canvas.height / DPR; const pad = 24;
+      const arr = [];
+      for (let i = 0; i < n; i++) {
+        arr.push({ x: pad + Math.random() * (w - 2 * pad), y: pad + Math.random() * (h - 2 * pad) });
+      }
+      return arr;
+    }
+
+    function draw() {
+      drawGrid();
+      const w = canvas.width / DPR, h = canvas.height / DPR;
+      // Pfad zeichnen
+      if (order && order.length > 1) {
+        ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(79,70,229,0.9)'; ctx.beginPath();
+        const p0 = points[order[0]]; ctx.moveTo(p0.x, p0.y);
+        for (let i = 1; i < order.length; i++) { const p = points[order[i]]; ctx.lineTo(p.x, p.y); }
+        ctx.lineTo(p0.x, p0.y); ctx.stroke();
+      }
+      // Punkte zeichnen
+      for (let i = 0; i < points.length; i++) {
+        const p = points[i];
+        ctx.fillStyle = '#0ea5e9'; // cyan-ish
+        ctx.beginPath(); ctx.arc(p.x, p.y, 4.5, 0, Math.PI * 2); ctx.fill();
+      }
+      // Startpunkt hervorheben
+      if (order && order.length > 0) {
+        const s = points[order[0]]; ctx.fillStyle = '#ef4444'; ctx.beginPath(); ctx.arc(s.x, s.y, 5.5, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+
+    function updateStats() {
+      const statPoints = document.getElementById('statPoints');
+      const statDist = document.getElementById('statDist');
+      const statImprove = document.getElementById('statImprove');
+      const statIters = document.getElementById('statIters');
+      statPoints.textContent = points.length;
+      if (order.length > 1) {
+        const d = totalDistance(order, points);
+        statDist.textContent = d.toFixed(1);
+        if (baseDistance != null) {
+          const imp = ((baseDistance - d) / baseDistance) * 100;
+          statImprove.textContent = (imp >= 0 ? '−' : '+') + Math.abs(imp).toFixed(1) + '%';
+        } else { statImprove.textContent = '–'; }
+      } else { statDist.textContent = '–'; statImprove.textContent = '–'; }
+      statIters.textContent = twoOptIterations;
+    }
+
+    // ======= Event-Handling =======
+    const numPointsInput = document.getElementById('numPoints');
+    const numPointsLabel = document.getElementById('numPointsLabel');
+    numPointsInput.addEventListener('input', () => { numPointsLabel.textContent = numPointsInput.value; });
+
+    document.getElementById('btnGenerate').addEventListener('click', () => {
+      points = randomPoints(parseInt(numPointsInput.value, 10));
+      order = []; baseDistance = null; twoOptIterations = 0; draw(); updateStats();
+    });
+
+    document.getElementById('btnAddMode').addEventListener('click', () => {
+      addMode = !addMode; document.getElementById('addModeState').textContent = addMode ? 'an' : 'aus';
+    });
+
+    canvas.addEventListener('click', (e) => {
+      if (!addMode) return; const rect = canvas.getBoundingClientRect();
+      const x = (e.clientX - rect.left) * (canvas.width / DPR / rect.width);
+      const y = (e.clientY - rect.top) * (canvas.height / DPR / rect.height);
+      points.push({ x, y }); order = []; baseDistance = null; twoOptIterations = 0; draw(); updateStats();
+    });
+
+    document.getElementById('btnSolve').addEventListener('click', () => {
+      if (points.length < 3) return;
+      order = nearestNeighbor(points, 0);
+      baseDistance = totalDistance(order, points);
+      let improved = true; twoOptIterations = 0;
+      const MAX_ITERS = 5000; // Sicherheitsgrenze
+      while (improved && twoOptIterations < MAX_ITERS) {
+        improved = twoOptFirstImprovement(order, points); twoOptIterations++;
+      }
+      draw(); updateStats();
+    });
+
+    document.getElementById('btnTwoOptStep').addEventListener('click', () => {
+      if (points.length < 4) return;
+      if (!order.length) { order = nearestNeighbor(points, 0); baseDistance = totalDistance(order, points); }
+      const ok = twoOptFirstImprovement(order, points); if (ok) twoOptIterations++;
+      draw(); updateStats();
+    });
+
+    document.getElementById('btnReset').addEventListener('click', () => {
+      order = []; baseDistance = null; twoOptIterations = 0; draw(); updateStats();
+    });
+
+    document.getElementById('btnDownloadPNG').addEventListener('click', () => {
+      // Temporär Hilfslinien ausblenden? Wir belassen das Grid.
+      const url = canvas.toDataURL('image/png');
+      const a = document.createElement('a'); a.href = url; a.download = 'tsp_demo.png'; a.click();
+    });
+
+    document.getElementById('btnDownloadCSV').addEventListener('click', () => {
+      const rows = ['x,y', ...points.map(p => `${p.x.toFixed(3)},${p.y.toFixed(3)}`)];
+      const blob = new Blob([rows.join('\n')], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob); const a = document.createElement('a');
+      a.href = url; a.download = 'points.csv'; a.click(); URL.revokeObjectURL(url);
+    });
+
+    // Tab-Handling (nur Stil – aktuell nur TSP aktiv)
+    document.querySelectorAll('.tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(b => b.classList.remove('bg-indigo-600','text-white'));
+        btn.classList.add('bg-indigo-600','text-white');
+      });
+    });
+
+    // Initialisierung
+    resizeCanvas();
+    // Startzustand mit wenigen Punkten
+    points = randomPoints(parseInt(numPointsInput.value, 10));
+    draw(); updateStats();
+  </script>
 </body>
 </html>
